@@ -9,8 +9,8 @@ repo_type = "dataset"
 # Read token
 HF_TOKEN = os.getenv("HF_TOKEN")
 
-if HF_TOKEN is None:
-    raise ValueError("HF_TOKEN is not set. Run:  export HF_TOKEN='your_token_here'")
+if not HF_TOKEN: # Check for None or empty string
+    raise ValueError("HF_TOKEN is not set or is empty. Please ensure it is provided.")
 
 api = HfApi(token=HF_TOKEN)
 
