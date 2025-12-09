@@ -9,10 +9,9 @@ repo_type = "dataset"
 # Read token
 HF_TOKEN = os.getenv("HF_TOKEN")
 
-# Add debug print and robust check
+# Add robust check
 if HF_TOKEN:
     HF_TOKEN = HF_TOKEN.strip()
-    print(f"HF_TOKEN length: {len(HF_TOKEN)}") # This will print length, but not value in CI logs
 
 if not HF_TOKEN: # Check for None or empty string after stripping
     raise ValueError("HF_TOKEN is not set or is empty. Please ensure it is provided and has no leading/trailing whitespace.")
